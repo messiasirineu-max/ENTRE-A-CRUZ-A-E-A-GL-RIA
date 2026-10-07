@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Entre a Cruz e a Glória: a Jornada de Uma Alma Rendida — livro de poesia evangélica do pastor Irineu Messias.">
+  <title>Entre a Cruz e a Glória | Pr. Irineu Messias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #211a18;
+      --brown: #33231c;
+      --brown-light: #634536;
+      --gold: #bd8b42;
+      --gold-light: #dcb875;
+      --cream: #f6f0e5;
+      --paper: #fffdf8;
+      --muted: #81756c;
+      --line: rgba(89, 62, 42, .18);
+      --shadow: 0 22px 60px rgba(38, 25, 17, .16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .container { width: min(1160px, calc(100% - 44px)); margin: auto; }
+
+    header {
+      position: absolute;
+      z-index: 10;
+      width: 100%;
+      top: 0;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+    }
+    .nav {
+      height: 84px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      letter-spacing: .02em;
+      font-weight: 600;
+    }
+    .brand-mark {
+      width: 31px;
+      height: 31px;
+      position: relative;
+      display: inline-block;
+    }
+    .brand-mark:before, .brand-mark:after {
+      content: "";
+      position: absolute;
+      background: var(--gold-light);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .brand-mark:before { width: 3px; height: 31px; }
+    .brand-mark:after { width: 23px; height: 3px; top: 9px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+    .nav-links a { opacity: .88; transition: color .2s, opacity .2s; }
+    .nav-links a:hover { color: var(--gold-light); opacity: 1; }
+    .nav-cta {
+      border: 1px solid var(--gold-light);
+      padding: 12px 19px;
+      border-radius: 2px;
+      color: #fff;
+    }
+    .menu-toggle { display: none; border: 0; color: white; background: none; font-size: 28px; }
+
+    .hero {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(22,14,11,.91) 0%, rgba(36,22,14,.72) 47%, rgba(34,23,17,.23) 100%),
+        url("https://www.designarena.ai/u/fcc754cd-1e2d-43cf-bb86-8fc957cdb261") center/cover;
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 115px;
+      background: linear-gradient(transparent, var(--paper));
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 640px; padding-top: 80px; }
+    .eyebrow {
+      color: var(--gold-light);
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    h1, h2, h3, .quote { font-family: "Cormorant Garamond", serif; }
+    h1 { font-size: clamp(56px, 7vw, 88px); line-height: .91; font-weight: 500; margin: 0 0 25px; }
+    h1 em { color: var(--gold-light); font-style: normal; }
+    .hero-description { max-width: 500px; line-height: 1.8; color: rgba(255,255,255,.82); font-size: 15px; margin-bottom: 34px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .btn {
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #fff;
+      padding: 15px 24px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      transition: .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn:hover { background: #a97432; border-color: #a97432; transform: translateY(-2px); }
+    .btn-outline { background: transparent; border-color: rgba(255,255,255,.65); }
+    .btn-outline:hover { background: white; color: var(--brown); border-color: white; }
+
+    section { padding: 100px 0; }
+    .section-label { color: var(--gold); text-transform: uppercase; letter-spacing: .2em; font-size: 10px; font-weight: 700; margin-bottom: 12px; }
+    h2 { font-size: clamp(42px, 5vw, 64px); line-height: .98; margin: 0 0 22px; font-weight: 500; }
+    .intro { color: var(--muted); line-height: 1.85; font-size: 14px; max-width: 540px; }
+
+    .book-section { background: var(--cream); }
+    .book-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: center; }
+    .book-visual { position: relative; max-width: 430px; margin: auto; }
+    .book-visual img { width: 100%; display: block; border-radius: 3px; box-shadow: 22px 28px 0 rgba(93,62,38,.12), var(--shadow); }
+    .book-visual:before {
+      content: "POESIA • FÉ • ENTREGA";
+      position: absolute; z-index: 2; left: -42px; bottom: 33px;
+      transform: rotate(-90deg); transform-origin: left top;
+      color: var(--gold); font-size: 9px; letter-spacing: .2em;
+    }
+    .details { margin: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: repeat(3, 1fr); }
+    .detail { padding: 19px 12px 19px 0; border-right: 1px solid var(--line); }
+    .detail:last-child { border: 0; padding-left: 15px; }
+    .detail strong { display: block; font-family: "Cormorant Garamond"; font-size: 26px; font-weight: 600; }
+    .detail span { color: var(--muted); text-transform: uppercase; letter-spacing: .11em; font-size: 9px; }
+
+    .quote-section { background: var(--brown); color: white; text-align: center; position: relative; overflow: hidden; }
+    .quote-section:before { content: "“"; position: absolute; color: rgba(220,184,117,.12); font-family: serif; font-size: 330px; line-height: 1; top: -76px; left: 7%; }
+    .quote { position: relative; max-width: 780px; margin: auto; font-size: clamp(32px, 4vw, 52px); line-height: 1.05; font-style: italic; }
+    .quote-author { color: var(--gold-light); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; margin-top: 25px; }
+
+    .author-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: center; }
+    .author-image { position: relative; }
+    .author-image img { width: 100%; aspect-ratio: 1/1.08; object-fit: cover; object-position: center; filter: sepia(.12); display: block; }
+    .author-image:after { content: ""; position: absolute; width: 80%; height: 80%; border: 1px solid var(--gold); left: 20px; top: 20px; z-index: -1; }
+    .author-copy p { color: var(--muted); font-size: 14px; line-height: 1.9; max-width: 570px; }
+    .signature { font-family: "Cormorant Garamond"; color: var(--brown-light); font-size: 30px; margin-top: 22px; }
+
+    .contact { background: var(--cream); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .benefits { list-style: none; padding: 0; margin: 30px 0; }
+    .benefits li { margin: 14px 0; display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: 13px; }
+    .benefits li:before { content: "✦"; color: var(--gold); }
+    form { background: white; padding: 34px; box-shadow: 0 15px 40px rgba(58,41,26,.08); }
+    label { display: block; font-size: 10px; font-weight: 600; color: var(--brown-light); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 7px; }
+    input, textarea { width: 100%; border: 1px solid #ded5c9; padding: 13px; margin-bottom: 18px; outline: none; color: var(--ink); background: #fff; }
+    input:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(189,139,66,.12); }
+    textarea { min-height: 90px; resize: vertical; }
+    .form-message { display: none; padding: 12px; color: #496b42; background: #edf5e8; margin-top: 12px; font-size: 12px; }
+
+    footer { background: #1b1513; color: rgba(255,255,255,.65); padding: 32px 0; font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+    footer .brand { color: white; font-size: 20px; }
+    .socials { display: flex; gap: 18px; }
+    .socials a:hover { color: var(--gold-light); }
+
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(19,12,9,.7); z-index: 20; display: none; place-items: center; padding: 20px; }
+    .modal-backdrop.open { display: grid; }
+    .modal { background: var(--paper); max-width: 480px; width: 100%; padding: 35px; position: relative; animation: appear .25s ease; }
+    @keyframes appear { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+    .modal h2 { font-size: 42px; }
+    .close { position: absolute; right: 18px; top: 14px; border: 0; background: none; font-size: 25px; color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 32px, 600px); }
+      .nav { height: 70px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; left: 16px; right: 16px; top: 70px; padding: 20px; flex-direction: column; align-items: stretch; gap: 18px; background: var(--brown); box-shadow: 0 12px 25px #0004; }
+      .nav-links.open { display: flex; }
+      .nav-cta { text-align: center; }
+      .hero { min-height: 700px; background-position: 60% center; }
+      .hero-content { padding-top: 95px; }
+      h1 { font-size: 59px; }
+      section { padding: 72px 0; }
+      .book-grid, .author-grid, .contact-grid { grid-template-columns: 1fr; gap: 55px; }
+      .book-visual { max-width: 350px; }
+      .author-image { max-width: 360px; margin: auto; }
+      .details { margin-bottom: 0; }
+      .contact-grid { gap: 35px; }
+      form { padding: 25px 20px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio"><span class="brand-mark"></span>Irineu Messias</a>
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+      <nav class="nav-links">
+        <a href="#livro">O livro</a>
+        <a href="#autor">O autor</a>
+        <a href="#mensagem">Mensagem</a>
+        <a href="#contato" class="nav-cta">Adquira o seu</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <div class="eyebrow">Poesia evangélica · Uma jornada de fé</div>
+        <h1>Entre a <em>Cruz</em><br>e a Glória</h1>
+        <p class="hero-description">Uma coleção de poemas que nasce do silêncio, atravessa a dor e encontra na presença de Deus a esperança para continuar.</p>
+        <div class="actions">
+          <a class="btn" href="#livro">Conheça o livro</a>
+          <button class="btn btn-outline" data-open-modal>Quero adquirir</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="book-section" id="livro">
+      <div class="container book-grid">
+        <div class="book-visual">
+          <img src="https://www.designarena.ai/u/c751477b-9117-44ab-966c-bf655ed9ded2" alt="Livro Entre a Cruz e a Glória">
+        </div>
+        <div>
+          <div class="section-label">Uma obra para o coração</div>
+          <h2>A jornada de uma<br><i>alma rendida</i></h2>
+          <p class="intro">Em cada página, o pastor Irineu Messias transforma experiências de fé, lutas e gratidão em versos que apontam para Cristo. Este é um livro para ler devagar — e permitir que cada palavra encontre morada.</p>
+          <div class="details">
+            <div class="detail"><strong>01</strong><span>Reflexão</span></div>
+            <div class="detail"><strong>02</strong><span>Adoração</span></div>
+            <div class="detail"><strong>03</strong><span>Esperança</span></div>
+          </div>
+          <button class="btn" data-open-modal>Reserve seu exemplar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="mensagem">
+      <div class="container">
+        <div class="quote">“A cruz não é o fim da estrada; é o lugar onde a alma aprende o caminho da glória.”</div>
+        <div class="quote-author">— Pr. Irineu Messias</div>
+      </div>
+    </section>
+
+    <section id="autor">
+      <div class="container author-grid">
+        <div class="author-image">
+          <img src="https://www.designarena.ai/u/fcc754cd-1e2d-43cf-bb86-8fc957cdb261" alt="Pastor Irineu Messias apresentando seu livro">
+        </div>
+        <div class="author-copy">
+          <div class="section-label">Sobre o autor</div>
+          <h2>Palavras que nascem<br>da presença</h2>
+          <p>Pastor, escritor e servo do Evangelho, Irineu Messias escreve com a sensibilidade de quem encontrou na Palavra um porto seguro. Seus poemas convidam o leitor a olhar para dentro, lembrar das promessas de Deus e seguir adiante com o coração renovado.</p>
+          <p>“Entre a Cruz e a Glória” é uma expressão de entrega: um testemunho em versos sobre a caminhada de uma alma que escolheu confiar.</p>
+          <div class="signature">Pr. Irineu Messias</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-label">Tenha essa mensagem com você</div>
+          <h2>Um livro para<br>presentear e guardar</h2>
+          <p class="intro">Leve para casa uma leitura que pode acompanhar seus momentos de oração, reflexão e comunhão.</p>
+          <ul class="benefits">
+            <li>Ideal para leitura devocional</li>
+            <li>Uma lembrança especial para alguém querido</li>
+            <li>Poemas inspirados na fé cristã</li>
+          </ul>
+        </div>
+        <form id="interest-form">
+          <div class="section-label">Fale conosco</div>
+          <h3 style="font-size:30px;margin:0 0 20px;font-weight:500;">Reserve seu exemplar</h3>
+          <label for="name">Seu nome</label>
+          <input id="name" name="name" required placeholder="Como podemos chamar você?">
+          <label for="email">Seu melhor e-mail</label>
+          <input id="email" name="email" type="email" required placeholder="voce@email.com">
+          <label for="message">Mensagem <span style="font-weight:400">(opcional)</span></label>
+          <textarea id="message" name="message" placeholder="Escreva uma mensagem..."></textarea>
+          <button class="btn" type="submit">Enviar interesse</button>
+          <div class="form-message" id="form-message">Recebemos seu interesse! Em breve entraremos em contato com você.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio"><span class="brand-mark"></span>Entre a Cruz e a Glória</a>
+      <div>© 2024 Irineu Messias · Uma mensagem de fé e esperança</div>
+      <div class="socials"><a href="#contato">Contato</a><a href="#autor">Sobre</a></div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="close" data-close-modal aria-label="Fechar">×</button>
+      <div class="section-label">Entre em contato</div>
+      <h2 id="modal-title">Reserve seu exemplar</h2>
+      <p class="intro" style="margin-bottom:22px;">Deixe seus dados e enviaremos as informações para aquisição do livro.</p>
+      <form id="modal-form">
+        <label for="modal-name">Seu nome</label>
+        <input id="modal-name" required placeholder="Seu nome completo">
+        <label for="modal-email">E-mail</label>
+        <input id="modal-email" type="email" required placeholder="voce@email.com">
+        <button class="btn" type="submit">Quero o meu livro</button>
+        <div class="form-message" id="modal-message">Obrigado! Seu pedido de informações foi enviado.</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuToggle.textContent = navLinks.classList.contains('open') ? '×' : '☰';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.textContent = '☰';
+    }));
+
+    const modal = document.getElementById('modal');
+    document.querySelectorAll('[data-open-modal]').forEach(btn => btn.addEventListener('click', () => {
+      modal.classList.add('open');
+      setTimeout(() => document.getElementById('modal-name').focus(), 100);
+    }));
+    document.querySelector('[data-close-modal]').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('open'); });
+
+    function handleForm(formId, messageId) {
+      document.getElementById(formId).addEventListener('submit', e => {
+        e.preventDefault();
+        const message = document.getElementById(messageId);
+        message.style.display = 'block';
+        e.target.querySelector('button').textContent = 'Enviado ✓';
+        e.target.querySelector('button').disabled = true;
+      });
+    }
+    handleForm('interest-form', 'form-message');
+    handleForm('modal-form', 'modal-message');
+  </script>
+</body>
+</html>
